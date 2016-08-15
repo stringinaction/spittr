@@ -19,12 +19,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * @author zhangjingwei
  */
 @Configuration
-@EnableWebMvc
-@ComponentScan("com.weib.spittr.web")
+@EnableWebMvc   //该配置类为Web配置类
+@ComponentScan("com.weib.spittr.web")   //扫描并自动加载该包下的Bean（定义了@Controller或@Component）
 public class WebConfig extends WebMvcConfigurerAdapter {
     
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver(){ //配置视图
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");

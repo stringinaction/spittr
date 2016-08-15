@@ -14,17 +14,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  *
  * @author zhangjingwei
  */
-@Controller
-@RequestMapping({"/", "/homepage"})
+@Controller //定义一个Controller
+@RequestMapping({"/", "/homepage"}) //处理URI列表
 public class HomeController {
     
     //@RequestMapping(value="/", method=GET)
-    @RequestMapping(method=GET)
+    @RequestMapping(method=GET) //处理GET访问请求
     public String home(){
         return "home";
     }
     
-    @RequestMapping(method=POST)
+    @RequestMapping(method=POST) //处理POST访问请求
     public String homecommit(){
         return "home";
     }
