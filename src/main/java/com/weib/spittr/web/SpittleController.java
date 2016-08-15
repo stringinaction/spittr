@@ -19,7 +19,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
  * @author zhangjingwei
  */
 @Controller
-@RequestMapping("/spittles")
 public class SpittleController {
 
     public SpittleRepository spittleRepository;
@@ -29,7 +28,7 @@ public class SpittleController {
         this.spittleRepository = spittleRepository;
     }
     
-    @RequestMapping(method=GET)
+    @RequestMapping(value="/spittles", method=GET)
     public String spittles(Model model){
         //model中实际为KEY-Value的Map，当不指定KEY时，会默认根据类型指定，比如List<Spittle> : spittleList
         model.addAttribute("spittleList11", this.spittleRepository.findSpittles(Long.MAX_VALUE, 20)); //向模型中加入数据
@@ -39,7 +38,7 @@ public class SpittleController {
     //该方法跟上面的方法相同，都是使用了默认的设定
     //视图名为: spittles
     //参数名为: spittleList
-    @RequestMapping(method=POST)   
+    @RequestMapping(value="/spittle_list", method=GET)
     public List<Spittle> spittles(){
         return this.spittleRepository.findSpittles(Long.MAX_VALUE, 20); //向模型中加入数据
     }

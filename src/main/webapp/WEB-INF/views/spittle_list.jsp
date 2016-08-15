@@ -7,19 +7,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome to Spittr</h1>
+        <h1>Welcome to Spittr List</h1>
         <a href="./homepage"><-gohome</a>
         <hr>
         <pre>
-    @RequestMapping(value="/spittles", method=GET)
-    public String spittles(Model model){
-        //model中实际为KEY-Value的Map，当不指定KEY时，会默认根据类型指定，比如List<Spittle> : spittleList
-        model.addAttribute("spittleList11", this.spittleRepository.findSpittles(Long.MAX_VALUE, 20)); //向模型中加入数据
-        return "spittles";
+    //视图名为: spittles
+    //参数名为: spittleList
+    @RequestMapping(value="/spittle_list", method=GET)
+    public List<Spittle> spittles(){
+        return this.spittleRepository.findSpittles(Long.MAX_VALUE, 20); //向模型中加入数据
     }
         </pre>
         <hr>
-        <c:forEach items="${spittleList11}" var="spittle" >
+        <c:forEach items="${spittleList}" var="spittle" >
         <li>
             ${spittle.message} | ${spittle.time}
         </li>

@@ -4,9 +4,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>HomePage</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Home Page</h1>
+        <a href="./spittles">spittles</a>
+        |
+        <a href="./spittle_list">spittle_list</a>
+        <hr>
+
     </body>
 </html>
