@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,5 +53,12 @@ public class SpittleController {
         model.addAttribute("max", max);
         model.addAttribute("count", count);
         return "spittle_page"; //向模型中加入数据
+    }
+    
+    @RequestMapping(value="/spittle/{spittleId}", method=GET)
+    public String spittle_show(@PathVariable long spittleId, Model model){
+        model.addAttribute("spittle", this.spittleRepository.findOne(spittleId));
+        model.addAttribute(spittleId);
+        return "spittle_show";
     }
 }

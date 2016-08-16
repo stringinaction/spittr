@@ -31,5 +31,10 @@ public class MockSpittleRepository implements SpittleRepository {
         
         return spittles;
     }
+
+    @Override
+    public Spittle findOne(long id) {
+        return new Spittle("Spittle-" + id, new Date());
+    }
     
 }

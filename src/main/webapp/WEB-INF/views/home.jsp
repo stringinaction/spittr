@@ -13,6 +13,8 @@
         <a href="./spittle_list">spittle_list</a>
         |
         <a href="./spittle_page">spittle_page</a>
+        |
+        <a href="./spittle/12345">spittle_show(12345)</a>
         <hr>
 
     </body>

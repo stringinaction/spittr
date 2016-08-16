@@ -97,4 +97,18 @@ public class SpittleControllerTest {
                 .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
     }
     
+    @Test
+    public void showSpittleTest() throws Exception{
+        Spittle spittle = new Spittle("hello!!", new Date());
+        SpittleRepository repository = mock(SpittleRepository.class);
+        when(repository.findOne(12345)).thenReturn(spittle);
+        
+        SpittleController controller = new SpittleController(repository);
+        MockMvc mockMvc = standaloneSetup(controller).build();
+        
+        mockMvc.perform(get("/spittle/12345"))
+                .andExpect(view().name("spittle_show"))
+                .andExpect(model().attributeExists("spittle"))
+                .andExpect(model().attribute("spittle", spittle));
+    }
 }
