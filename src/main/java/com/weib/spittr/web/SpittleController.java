@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -41,5 +42,11 @@ public class SpittleController {
     @RequestMapping(value="/spittle_list", method=GET)
     public List<Spittle> spittles(){
         return this.spittleRepository.findSpittles(Long.MAX_VALUE, 20); //向模型中加入数据
+    }
+    
+    @RequestMapping(value="/spittle_page", method=GET)
+    public List<Spittle> spittles(@RequestParam("max") long max,
+            @RequestParam("count") int count){
+        return this.spittleRepository.findSpittles(max, count); //向模型中加入数据
     }
 }

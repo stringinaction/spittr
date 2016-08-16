@@ -68,7 +68,7 @@ public class SpittleControllerTest {
         //创建测试用的controller
         SpittleController controller = new SpittleController(mockRepository);   //构建一个测试用的controller
         MockMvc mockMvc = standaloneSetup(controller).setSingleView(
-                new InternalResourceView("/WEB-INF/views/spittles.jsp") //视图名和请求路径相同，因此要调用setSingleView
+                new InternalResourceView("/WEB-INF/views/spittle_list.jsp") //视图名和请求路径相同，因此要调用setSingleView
         ).build();
         
         //发起GET的/spittles请求，并且断言
@@ -77,6 +77,24 @@ public class SpittleControllerTest {
                 .andExpect(model().attributeExists("spittleList"))
                 .andExpect(model().attribute("spittleList", hasItems(spittleList.toArray())));
                 
+    }
+    
+    @Test
+    public void pagedSpittleTest() throws Exception{
+        List<Spittle> spittles = createSpittleList(50);
+        SpittleRepository mockRepository = mock(SpittleRepository.class);
+        when(mockRepository.findSpittles(100, 50))
+                .thenReturn(spittles);
+        
+        SpittleController controller = new SpittleController(mockRepository);
+        MockMvc mockMvc = standaloneSetup(controller).setSingleView(
+                new InternalResourceView("/WEB-INF/views/spittle_page.jsp")
+        ).build();
+        
+        mockMvc.perform(get("/spittle_page?max=100&count=50"))
+                .andExpect(view().name("spittle_page"))
+                .andExpect(model().attributeExists("spittleList"))
+                .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
     }
     
 }
