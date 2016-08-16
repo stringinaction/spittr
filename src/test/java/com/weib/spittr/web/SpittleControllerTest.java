@@ -72,8 +72,8 @@ public class SpittleControllerTest {
         ).build();
         
         //发起GET的/spittles请求，并且断言
-        mockMvc.perform(post("/spittles"))
-                .andExpect(view().name("spittles"))
+        mockMvc.perform(get("/spittle_list"))
+                .andExpect(view().name("spittle_list"))
                 .andExpect(model().attributeExists("spittleList"))
                 .andExpect(model().attribute("spittleList", hasItems(spittleList.toArray())));
                 

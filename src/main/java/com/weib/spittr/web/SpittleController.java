@@ -36,7 +36,7 @@ public class SpittleController {
     }
     
     //该方法跟上面的方法相同，都是使用了默认的设定
-    //视图名为: spittles
+    //视图名为: spittle_list
     //参数名为: spittleList
     @RequestMapping(value="/spittle_list", method=GET)
     public List<Spittle> spittles(){
