@@ -16,6 +16,7 @@
         |
         <a href="./spittle/12345">spittle_show(12345)</a>
         <hr>
-
+        <a href="./spitter/register">spitter_register</a>
+        <hr>
     </body>
 </html>
