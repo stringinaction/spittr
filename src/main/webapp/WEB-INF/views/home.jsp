@@ -11,6 +11,8 @@
         <a href="./spittles">spittles</a>
         |
         <a href="./spittle_list">spittle_list</a>
+        |
+        <a href="./spittle_page">spittle_page</a>
         <hr>
 
     </body>
