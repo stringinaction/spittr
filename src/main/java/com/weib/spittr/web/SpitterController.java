@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -38,7 +39,7 @@ public class SpitterController {
     }
     
     @RequestMapping(value="/register", method=POST)
-    public String registProcess(@Valid Spitter spitter,
+    public String registProcess(@ModelAttribute("spitter") @Valid Spitter spitter,
             Errors errors, Model model){
         
         if(errors.hasErrors()){

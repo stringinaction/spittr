@@ -20,7 +20,7 @@
         </c:forEach>
         
         <form method="POST">
-            firstName: <input type="text" name="firstName" /><br><br>
+            firstName: <input type="text" name="firstName" value="${spitter != null ? spitter.firstName : ""}" /><br><br>
             lastName: <input type="text" name="lastName" /><br><br>
             username: <input type="text" name="username" /><br><br>
             password: <input type="text" name="password" /><br><br>
