@@ -6,6 +6,8 @@
 package com.weib.spittr.repostory.data;
 
 import java.util.Objects;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -14,9 +16,20 @@ import java.util.Objects;
 public class Spitter {
     private Long id;
     
+    @NotNull
+    @Size(min=3, max=20)
     private String firstName;
+    
+    @NotNull
+    @Size(min=3, max=20)
     private String lastName;
+    
+    @NotNull
+    @Size(min=3, max=20)
     private String username;
+    
+    @NotNull
+    @Size(min=6, max=30)
     private String password;
     
     //要使用对象化的参数，这个构造方法是必须的 否则会报无法找到构造器的错误

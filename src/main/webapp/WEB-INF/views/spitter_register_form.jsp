@@ -10,6 +10,11 @@
         <h1>Spitter Register!</h1>
         <a href="/homepage"><-gohome</a>
         <hr>
+        
+        <c:if test="${errors != null && errors.hasErrors()}" >
+            <b><font color="red">ERROR!</font></b>
+        </c:if>
+        
         <form method="POST">
             firstName: <input type="text" name="firstName" /><br><br>
             lastName: <input type="text" name="lastName" /><br><br>
