@@ -16,8 +16,8 @@ import javax.validation.constraints.Size;
 public class Spitter {
     private Long id;
     
-    @NotNull
-    @Size(min=3, max=20)
+    @NotNull(message="firstName 不能为空")
+    @Size(min=3, max=20, message="firstName 个数必须在3和20之间")
     private String firstName;
     
     @NotNull

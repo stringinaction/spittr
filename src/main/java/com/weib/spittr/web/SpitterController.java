@@ -42,7 +42,7 @@ public class SpitterController {
             Errors errors, Model model){
         
         if(errors.hasErrors()){
-            model.addAttribute(errors);
+            model.addAttribute("errors", errors.getAllErrors());
             return "spitter_register_form";
         }
         

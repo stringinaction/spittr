@@ -10,10 +10,14 @@
         <h1>Spitter Register!</h1>
         <a href="/homepage"><-gohome</a>
         <hr>
-        
-        <c:if test="${errors != null && errors.hasErrors()}" >
-            <b><font color="red">ERROR!</font></b>
-        </c:if>
+            
+        <c:forEach items="${errors}" var="error" >
+        <font color="red"><b>
+                <li>
+                    ${error.defaultMessage}
+                </li>        
+        </b></font>
+        </c:forEach>
         
         <form method="POST">
             firstName: <input type="text" name="firstName" /><br><br>
